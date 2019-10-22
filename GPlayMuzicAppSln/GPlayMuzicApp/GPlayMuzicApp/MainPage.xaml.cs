@@ -17,5 +17,10 @@ namespace GPlayMuzicApp
         {
             InitializeComponent();
         }
+
+        private async void homepagebtn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TabbedPage1());
+        }
     }
 }

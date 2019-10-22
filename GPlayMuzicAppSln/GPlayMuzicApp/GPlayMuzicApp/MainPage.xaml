@@ -5,19 +5,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="GPlayMuzicApp.MainPage"
-             BackgroundImageSource="reece.jpg">
+             BackgroundImageSource="reece.jpg"
+             Title="MainPage">
 
     <StackLayout>
         <!-- Place new controls here -->
         <Label Text="Music Is Life" 
            HorizontalOptions="Center" 
-           VerticalOptions="CenterAndExpand" />
+           VerticalOptions="CenterAndExpand"
+               FontSize="Large"
+               FontAttributes="Bold"
+               Margin="30"/>
 
         <Button VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center" Margin="20" 
                 Padding="20" CornerRadius="20" 
                 BackgroundColor="#ff710b" 
-                Text="Home Page">
+                Text="Home Page"
+                x:Name="homepagebtn"
+                Clicked="homepagebtn_Clicked"
+                TextColor="White">
         </Button>
 
 
