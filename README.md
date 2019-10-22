@@ -1,1 +1,1 @@
-# GPlayMausicApp
+# GPlayMusicApp
