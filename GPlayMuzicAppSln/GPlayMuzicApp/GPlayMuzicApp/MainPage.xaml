@@ -4,13 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GPlayMuzicApp.MainPage">
+             x:Class="GPlayMuzicApp.MainPage"
+             BackgroundImageSource="reece.jpg">
 
     <StackLayout>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
+        <Label Text="Music Is Life" 
+           HorizontalOptions="Center" 
            VerticalOptions="CenterAndExpand" />
+
+        <Button VerticalOptions="CenterAndExpand"
+                HorizontalOptions="Center" Margin="20" 
+                Padding="20" CornerRadius="20" 
+                BackgroundColor="#ff710b" 
+                Text="Home Page">
+        </Button>
+
+
     </StackLayout>
 
 </ContentPage>
