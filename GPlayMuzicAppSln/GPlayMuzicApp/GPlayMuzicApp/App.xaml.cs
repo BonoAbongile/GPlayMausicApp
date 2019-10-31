@@ -10,7 +10,11 @@ namespace GPlayMuzicApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+           var navPage = new NavigationPage(new MainPage());
+            navPage.BarBackgroundColor = Color.Black;
+            navPage.BarTextColor = Color.White;
+            MainPage = navPage;
+
         }
 
         protected override void OnStart()

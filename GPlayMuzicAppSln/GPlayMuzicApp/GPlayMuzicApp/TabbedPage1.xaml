@@ -4,9 +4,67 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="GPlayMuzicApp.TabbedPage1">
+            xmlns:local="clr-namespace:GPlayMuzicApp"
+             x:Class="GPlayMuzicApp.TabbedPage1"
+            Title="Home Page"
+            BarBackgroundColor="Black"
+            BarTextColor="White">
   <!--Pages can be added as references or inline-->
-  <ContentPage Title="Albums" />
-  <ContentPage Title="All Songs" />
+    <ContentPage Title="Albums" >
+        <ContentPage.Content>
+            <ScrollView VerticalOptions="Start" BackgroundColor="Yellow" IsClippedToBounds="True" Margin="5,5,5,5">
+                <Grid BackgroundColor="Yellow" VerticalOptions="Start" HeightRequest="230">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70*" />
+                        <RowDefinition Height="30*" />
+                    </Grid.RowDefinitions>
+                    <Image Grid.Row="0" Aspect="AspectFill" Source="reece" />
+                    <BoxView Grid.Row="0" Opacity=".2" Color="Black" />
+                    <ImageButton Grid.Row="0" Margin="5" VerticalOptions="Start" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" Source="options" />
+                    <ImageButton Grid.Row="0" Margin="5" VerticalOptions="End" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" Source="play" />
+                    <Label Margin="10" TextColor="Black" Grid.Row="1" Text="Album's Name" />
+                </Grid>
+
+
+
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="All Songs">
+        <StackLayout>
+        <Label Text="Your Playlist"
+               FontSize="20"
+               FontAttributes="20"
+               TextColor="Black"
+               Margin="30"
+               HorizontalOptions="Center" />
+
+        <ListView Margin="10, 0">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type local:Song}">
+                    <local:Song SongName="My Song" Image="reece" Artist="Artist Name" />
+                    </x:Array>
+                    </ListView.ItemsSource>
+            
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="20, 5" 
+                                     Orientation="Horizontal">
+                                <Image Source="{Binding Image}"  />
+                                <StackLayout VerticalOptions="Center"
+                                         Spacing="0">
+                                    <Label Text="{Binding Artist}" />
+                                    <Label Text="{Binding SongName}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            
+            </ListView>
+        </StackLayout>
+    </ContentPage>
   <ContentPage Title="Artists" />
 </TabbedPage>
