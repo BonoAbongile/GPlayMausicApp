@@ -24,47 +24,60 @@
                     <ImageButton Grid.Row="0" Margin="5" VerticalOptions="End" HorizontalOptions="End" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" Source="play" />
                     <Label Margin="10" TextColor="Black" Grid.Row="1" Text="Album's Name" />
                 </Grid>
-
-
-
             </ScrollView>
         </ContentPage.Content>
     </ContentPage>
 
     <ContentPage Title="All Songs">
-        <StackLayout>
-        <Label Text="Your Playlist"
-               FontSize="20"
-               FontAttributes="20"
-               TextColor="Black"
-               Margin="30"
-               HorizontalOptions="Center" />
-
-        <ListView Margin="10, 0">
-            <ListView.ItemsSource>
-                <x:Array Type="{x:Type local:Song}">
-                    <local:Song SongName="My Song" Image="reece" Artist="Artist Name" />
+        <ScrollView>
+            <ListView Margin="10, 0">
+                <ListView.ItemsSource>
+                    <x:Array Type="{x:Type local:Song}">
+                        <local:Song SongName="My Song" Image="reece" Artist="Artist Name" />
+                        <local:Song SongName="Duses" Image="logo" Artist="Some L.A Nigga" />
                     </x:Array>
-                    </ListView.ItemsSource>
-            
+                </ListView.ItemsSource>
+
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="20, 5" 
-                                     Orientation="Horizontal">
-                                <Image Source="{Binding Image}"  />
-                                <StackLayout VerticalOptions="Center"
-                                         Spacing="0">
-                                    <Label Text="{Binding Artist}" />
-                                    <Label Text="{Binding SongName}" />
-                                </StackLayout>
-                            </StackLayout>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Image Source="{Binding Image}" Grid.RowSpan="2" Aspect="AspectFill" WidthRequest="100" HeightRequest="100"  />
+                                <Label Text="{Binding Artist}" Grid.Column="1" />
+                                <Label Text="{Binding SongName}" Grid.Column="1" Grid.Row="1" VerticalOptions="End" />
+                            </Grid>
+
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            
+
             </ListView>
+        </ScrollView>
+    </ContentPage>
+    
+    <ContentPage Title="Artists">
+        <StackLayout>
+            <Label Text="Wait they are coming"
+               FontSize="30"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand"
+               BindingContext="{x:Reference Name=slider}"
+               Rotation="{Binding Path=Value}"/>
+
+            <Slider VerticalOptions="CenterAndExpand"
+                Maximum="360"
+                x:Name="slider" />
+
         </StackLayout>
     </ContentPage>
-  <ContentPage Title="Artists" />
 </TabbedPage>
